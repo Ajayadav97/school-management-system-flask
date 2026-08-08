@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Reports - School Management System{% endblock %}
+{% block content %}
+<h1>Reports</h1>
+
+<div class="card">
+    <h2>Attendance Summary</h2>
+    <table>
+        <thead><tr><th>Admission No.</th><th>Name</th><th>Present Days</th><th>Total Marked Days</th></tr></thead>
+        <tbody>
+        {% for a in attendance_summary %}
+            <tr>
+                <td>{{ a.admission_no }}</td>
+                <td>{{ a.name }}</td>
+                <td>{{ a.present_days or 0 }}</td>
+                <td>{{ a.total_days or 0 }}</td>
+            </tr>
+        {% else %}
+            <tr><td colspan="4" class="muted">No attendance data yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h2>Fee Summary</h2>
+    <table>
+        <thead><tr><th>Admission No.</th><th>Name</th><th>Total Due</th><th>Total Paid</th><th>Balance</th></tr></thead>
+        <tbody>
+        {% for f in fee_summary %}
+            <tr>
+                <td>{{ f.admission_no }}</td>
+                <td>{{ f.name }}</td>
+                <td>₹{{ "%.2f"|format(f.total_due) }}</td>
+                <td>₹{{ "%.2f"|format(f.total_paid) }}</td>
+                <td>₹{{ "%.2f"|format(f.total_due - f.total_paid) }}</td>
+            </tr>
+        {% else %}
+            <tr><td colspan="5" class="muted">No fee data yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

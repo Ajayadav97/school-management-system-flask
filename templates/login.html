@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Login - School Management System{% endblock %}
+{% block content %}
+<div class="login-wrap">
+    <form method="post" class="card login-card">
+        <h1>School Management System</h1>
+        <p class="muted">Sign in to continue</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <label>Username</label>
+        <input type="text" name="username" required autofocus>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Login</button>
+        <p class="muted small">Default admin credentials: admin / admin123</p>
+    </form>
+</div>
+{% endblock %}

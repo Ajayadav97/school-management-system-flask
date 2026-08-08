@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - School Management System{% endblock %}
+{% block content %}
+<h1>Dashboard</h1>
+
+<div class="stat-grid">
+    <div class="stat-card">
+        <div class="stat-value">{{ total_students }}</div>
+        <div class="stat-label">Total Students</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">{{ total_classes }}</div>
+        <div class="stat-label">Total Classes</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">{{ present_today }}</div>
+        <div class="stat-label">Present Today ({{ today }})</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-value">₹{{ "%.2f"|format(pending_fees) }}</div>
+        <div class="stat-label">Pending Fees</div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Recent Results</h2>
+    {% if recent_results %}
+    <table>
+        <thead><tr><th>Student</th><th>Subject</th><th>Exam</th><th>Marks</th></tr></thead>
+        <tbody>
+        {% for r in recent_results %}
+            <tr>
+                <td>{{ r.student_name }}</td>
+                <td>{{ r.subject_name }}</td>
+                <td>{{ r.exam_name }}</td>
+                <td>{{ r.marks }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="muted">No results entered yet.</p>
+    {% endif %}
+</div>
+
+<div class="quick-links">
+    <a href="{{ url_for('students') }}" class="btn">Manage Students</a>
+    <a href="{{ url_for('attendance') }}" class="btn">Take Attendance</a>
+    <a href="{{ url_for('fees') }}" class="btn">Fee Entry</a>
+    <a href="{{ url_for('reports') }}" class="btn">View Reports</a>
+</div>
+{% endblock %}

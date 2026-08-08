@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Exams - School Management System{% endblock %}
+{% block content %}
+<h1>Examination Management</h1>
+
+<div class="card">
+    <h2>Create Examination</h2>
+    <form method="post" class="form-grid">
+        <div>
+            <label>Exam Name</label>
+            <input type="text" name="exam_name" placeholder="e.g. Half Yearly" required>
+        </div>
+        <div>
+            <label>Session</label>
+            <input type="text" name="session" placeholder="e.g. 2026-2027" required>
+        </div>
+        <div class="full-width">
+            <button type="submit">Save Exam</button>
+        </div>
+    </form>
+</div>
+
+<div class="card">
+    <h2>Examinations</h2>
+    <table>
+        <thead><tr><th>Exam Name</th><th>Session</th></tr></thead>
+        <tbody>
+        {% for e in exams %}
+            <tr><td>{{ e.exam_name }}</td><td>{{ e.session }}</td></tr>
+        {% else %}
+            <tr><td colspan="2" class="muted">No exams created yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<p><a href="{{ url_for('subjects') }}" class="btn">Manage Subjects</a></p>
+{% endblock %}

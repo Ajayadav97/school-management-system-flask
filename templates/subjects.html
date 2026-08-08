@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Subjects - School Management System{% endblock %}
+{% block content %}
+<h1>Subject Management</h1>
+
+<div class="card">
+    <h2>Add Subject</h2>
+    <form method="post" class="form-grid">
+        <div>
+            <label>Subject Name</label>
+            <input type="text" name="subject_name" required>
+        </div>
+        <div>
+            <label>Code</label>
+            <input type="text" name="code">
+        </div>
+        <div class="full-width">
+            <button type="submit">Save Subject</button>
+        </div>
+    </form>
+</div>
+
+<div class="card">
+    <h2>Subjects</h2>
+    <table>
+        <thead><tr><th>Subject</th><th>Code</th></tr></thead>
+        <tbody>
+        {% for s in subjects %}
+            <tr><td>{{ s.subject_name }}</td><td>{{ s.code or '-' }}</td></tr>
+        {% else %}
+            <tr><td colspan="2" class="muted">No subjects added yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

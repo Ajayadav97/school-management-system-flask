@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Results - School Management System{% endblock %}
+{% block content %}
+<h1>Examination Results</h1>
+
+<div class="card">
+    <h2>Enter Marks</h2>
+    <form method="post" class="form-grid">
+        <div>
+            <label>Exam</label>
+            <select name="exam_id" required>
+                <option value="">Select exam</option>
+                {% for e in exams %}
+                <option value="{{ e.id }}">{{ e.exam_name }} ({{ e.session }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Student</label>
+            <select name="student_id" required>
+                <option value="">Select student</option>
+                {% for s in students %}
+                <option value="{{ s.id }}">{{ s.admission_no }} - {{ s.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Subject</label>
+            <select name="subject_id" required>
+                <option value="">Select subject</option>
+                {% for sub in subjects %}
+                <option value="{{ sub.id }}">{{ sub.subject_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Marks (0-100)</label>
+            <input type="number" step="0.01" min="0" max="100" name="marks" required>
+        </div>
+        <div class="full-width">
+            <button type="submit">Save Result</button>
+        </div>
+    </form>
+</div>
+
+<div class="card">
+    <h2>Result Records</h2>
+    <table>
+        <thead><tr><th>Student</th><th>Exam</th><th>Subject</th><th>Marks</th></tr></thead>
+        <tbody>
+        {% for r in results %}
+            <tr>
+                <td>{{ r.student_name }}</td>
+                <td>{{ r.exam_name }}</td>
+                <td>{{ r.subject_name }}</td>
+                <td>{{ r.marks }}</td>
+            </tr>
+        {% else %}
+            <tr><td colspan="4" class="muted">No results entered yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

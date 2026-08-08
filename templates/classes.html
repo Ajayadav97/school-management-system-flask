@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Classes - School Management System{% endblock %}
+{% block content %}
+<h1>Class &amp; Section Management</h1>
+
+<div class="card">
+    <h2>Add Class</h2>
+    <form method="post" class="form-grid">
+        <div>
+            <label>Class Name</label>
+            <input type="text" name="class_name" placeholder="e.g. X" required>
+        </div>
+        <div>
+            <label>Section</label>
+            <input type="text" name="section" placeholder="e.g. A" required>
+        </div>
+        <div>
+            <label>Session</label>
+            <input type="text" name="session" placeholder="e.g. 2026-2027" required>
+        </div>
+        <div class="full-width">
+            <button type="submit">Save Class</button>
+        </div>
+    </form>
+</div>
+
+<div class="card">
+    <h2>Class List</h2>
+    <table>
+        <thead><tr><th>Class</th><th>Section</th><th>Session</th></tr></thead>
+        <tbody>
+        {% for c in classes %}
+            <tr><td>{{ c.class_name }}</td><td>{{ c.section }}</td><td>{{ c.session }}</td></tr>
+        {% else %}
+            <tr><td colspan="3" class="muted">No classes added yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Attendance - School Management System{% endblock %}
+{% block content %}
+<h1>Attendance Management</h1>
+
+<div class="card">
+    <form method="get" class="form-grid">
+        <div>
+            <label>Class</label>
+            <select name="class_id" onchange="this.form.submit()">
+                <option value="">Select class</option>
+                {% for c in classes %}
+                <option value="{{ c.id }}" {% if class_id and class_id|int == c.id %}selected{% endif %}>
+                    {{ c.class_name }}-{{ c.section }} ({{ c.session }})
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Date</label>
+            <input type="date" name="attendance_date" value="{{ attendance_date }}" onchange="this.form.submit()">
+        </div>
+    </form>
+</div>
+
+{% if class_id %}
+<div class="card">
+    <h2>Mark Attendance</h2>
+    <form method="post">
+        <input type="hidden" name="class_id" value="{{ class_id }}">
+        <input type="hidden" name="attendance_date" value="{{ attendance_date }}">
+        <table>
+            <thead><tr><th>Admission No.</th><th>Name</th><th>Status</th></tr></thead>
+            <tbody>
+            {% for r in roster %}
+                <tr>
+                    <input type="hidden" name="student_id" value="{{ r.id }}">
+                    <td>{{ r.admission_no }}</td>
+                    <td>{{ r.name }}</td>
+                    <td>
+                        <label><input type="radio" name="status_{{ r.id }}" value="Present"
+                            {% if r.status == 'Present' or not r.status %}checked{% endif %}> Present</label>
+                        <label><input type="radio" name="status_{{ r.id }}" value="Absent"
+                            {% if r.status == 'Absent' %}checked{% endif %}> Absent</label>
+                    </td>
+                </tr>
+            {% else %}
+                <tr><td colspan="3" class="muted">No students in this class.</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% if roster %}<button type="submit">Save Attendance</button>{% endif %}
+    </form>
+</div>
+{% endif %}
+{% endblock %}
