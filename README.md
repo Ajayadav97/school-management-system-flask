@@ -65,21 +65,6 @@ The system uses **Flask** for the web application, **SQLite** for data persisten
    Change this password (or create a new admin user directly in the
    database) before treating this as anything beyond an academic demo.
 
-## Taking screenshots for your report
-
-Once the app is running and you've entered some real or sample data:
-1. Log in → screenshot the login page.
-2. Go to Dashboard → screenshot the stat cards.
-3. Go to Students → add a student → screenshot the form and the table.
-4. Go to Attendance → pick a class and date → screenshot the roster.
-5. Go to Fees → add a payment → screenshot the fee table.
-6. Go to Exams/Results → create an exam, enter marks → screenshot results.
-7. Go to Reports → screenshot the attendance/fee summaries.
-
-Replace the placeholder Figures in Section 11 of the report with these,
-and paste your actual `app.py`, `database.py`, `schema.sql`, and template
-files into Appendix A in place of the sample excerpts.
-
 ## Project structure
 
 ```
