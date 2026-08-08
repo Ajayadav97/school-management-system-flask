@@ -22,7 +22,7 @@ The system uses **Flask** for the web application, **SQLite** for data persisten
 
 1. **Install Python 3.10+** if you don't already have it (check with `python3 --version`).
 
-2. **Open a terminal in this folder** (`school_management/`).
+2. **Open a terminal in this folder** (`school-management-system-flask/`).
 
 3. **Create and activate a virtual environment:**
    ```
