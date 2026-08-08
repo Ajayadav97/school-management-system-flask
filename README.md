@@ -5,10 +5,18 @@
 ![Dashboard](screenshots/updated_dashboard.png)
 ![Student Management](screenshots/Testresults.png)
 
-A working Flask + SQLite web application built for the NIELIT 'O' Level (IT)
-project, matching the scope described in the project report: student
-records, class/section management, attendance, fees, examinations/results,
-a dashboard, and basic reports.
+## Overview
+
+This application provides a centralized platform for managing essential school operations, including:
+
+- Student records
+- Class and section management
+- Attendance tracking
+- Fee management
+- Examination and result management
+- Dashboard and academic reports
+
+The system uses **Flask** for the web application, **SQLite** for data persistence, and **HTML, CSS, JavaScript, and Jinja2** for the user interface.
 
 ## How to run it on your own computer
 
