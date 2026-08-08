@@ -1,8 +1,15 @@
 # School Management & Student Information System
 
+A web-based School Management System built with Python, Flask, and SQLite to manage essential school operations.
+
 ## Screenshots
 
+### Dashboard
+
 ![Dashboard](screenshots/updated_dashboard.png)
+
+### Student Management
+
 ![Student Management](screenshots/Testresults.png)
 
 ## Overview
@@ -58,17 +65,18 @@ The system uses **Flask** for the web application, **SQLite** for data persisten
 
 8. **Open your browser** to `http://127.0.0.1:5050`
 
-9. **Log in** with the default admin account:
+9. **Log in using the demo administrator account:**
+
    - Username: `admin`
    - Password: `admin123`
 
-   Change this password (or create a new admin user directly in the
-   database) before treating this as anything beyond an academic demo.
+   > These credentials are intended for local demonstration only.
+   > Change the default password before deploying the application to a production environment.
 
 ## Project structure
 
 ```
-school_management/
+school-management-system-flask/
 ├── app.py              # Flask routes and application logic
 ├── database.py         # DB connection + one-time schema initialization
 ├── schema.sql           # Table definitions
