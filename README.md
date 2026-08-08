@@ -108,3 +108,14 @@ management, password hashing, authorization controls, input validation,
 database security, and production server configuration.
 
 The repository uses dummy/sample data for demonstration purposes.
+
+## License
+
+Copyright © 2026 Ajay K Yadav. All rights reserved.
+
+This project is proprietary and source-available for viewing and
+evaluation purposes only. No permission is granted to copy, modify,
+redistribute, publish, commercially use, or incorporate the source code
+into other projects without prior written permission.
+
+See the [LICENSE](LICENSE) file for the complete terms.
