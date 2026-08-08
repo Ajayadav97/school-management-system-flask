@@ -97,19 +97,13 @@ school_management/
     ├── css/style.css
     └── js/app.js
 ```
+## Security Note
 
-## Notes on authenticity for NIELIT submission
+This project is intended for academic and demonstration purposes.
 
-- This code was built specifically for your project and tested end-to-end
-  (login, adding students, marking attendance, recording fees, entering
-  results with validation, viewing reports) — all against a real SQLite
-  database, not mocked.
-- You should still run it yourself, explore it, understand how it works,
-  and be ready to explain it and modify it live if your guide asks — that's
-  the actual point of the exercise, not just having files that run.
-- Replace the default secret key and admin password before calling this
-  "secure"; as noted in the report, this is an academic prototype, not a
-  production deployment.
-- Use only dummy/fictitious student data (as already done in
-  `seed_sample_data.py`) unless you have explicit authorization to use real
-  student records.
+Before deploying the application in a production environment, additional
+security measures should be implemented, including secure secret-key
+management, password hashing, authorization controls, input validation,
+database security, and production server configuration.
+
+The repository uses dummy/sample data for demonstration purposes.
